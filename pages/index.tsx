@@ -65,11 +65,13 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
         </BlogTitle>
         <List>
           {posts.map((post) => (
+            <Link href="posts/[id]" as={`/posts/${post.id}`}>
             <ListItem key={post.id}>
               <PostTitle>
-                <Link href={`/posts/${post.id}`}>{post.title}</Link>
+                {post.title}
               </PostTitle>
             </ListItem>
+            </Link>
           ))}
         </List>
       </Main>
